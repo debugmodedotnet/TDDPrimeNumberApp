@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface1.cs" />
     <Compile Include="IPrimeNumberGenerator.cs" />
     <Compile Include="PrimeNumberResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

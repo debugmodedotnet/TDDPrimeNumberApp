@@ -11,53 +11,34 @@ namespace PrimeNumberApp.Operations
     {
 
         PrimeNumberResult result;
-        PrimeNumberResult IPrimeNumberGenerator.GetNumbers(int count)
+        public PrimeNumberResult GetNumbers(int count)
         {
             int i;
-            result = new PrimeNumberResult{Result = new List<int>(), NumberOfOperations=0};
+            result = new PrimeNumberResult { Result = new List<int>(), NumberOfOperations = 0 };
             result.Result.Add(2);
 
             for (i = 3; i <= count; i++)
             {
-               
-
-                if (i % 2 == 0) 
+                if (i % 2 != 0)
                 {
-                    continue; 
-                }
-                else if (i % 3 ==0)
-                {
-                      continue; 
-                 }
-                else if (i % 5 ==0)
-                {
-                      continue; 
-                 }
-                 else if (i % 7 ==0)
-                {
-                      continue; 
-                 }
-               
-                else
-                {
-                    if(isPrime(i))
+                    if (!IsDivisebleByThreeFiveSeven(i))
                     {
-                        result.Result.Add(i);
 
+                        if (IsPrime(i))
+                        {
+                            result.Result.Add(i);
+
+                        }
                     }
-               }
-            }
-                
-            
 
-                return result;
+                }
 
             }
+            return result;
 
+        }
 
-
-
-        bool isPrime(int number)
+        public bool IsPrime(int number)
         {
 
             if (number == 1) return false;
@@ -65,13 +46,27 @@ namespace PrimeNumberApp.Operations
 
             for (int i = 2; i <= Math.Ceiling(Math.Sqrt(number)); ++i)
             {
-                result.NumberOfOperations = result.NumberOfOperations + 1; 
+                result.NumberOfOperations = result.NumberOfOperations + 1;
                 if (number % i == 0) return false;
             }
 
             return true;
         }
 
-}
+        public bool IsDivisebleByThreeFiveSeven(int number)
+        {
+            bool flag = false;
+            for (int i = 3; i <= 7; i += 2)
+            {
+                if (number % i == 0)
+                {
+                    flag = true;
+                }
+            }
+
+            return flag;
+        }
+
+    }
 }
 
