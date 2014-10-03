@@ -18,13 +18,15 @@ namespace PrimeNumberApp.Operations
             // List<int> lstPrimeNumbers = new List<int>();
             //lstPrimeNumbers.Add(1);
             result.Result.Add(1);
+            result.Result.Add(2);
 
-
-            for (i = 2; i <= count; i++)
+            for (i = 3; i <= count; i++)
             {
                 result.NumberOfOperations = result.NumberOfOperations + 1;
-                
-                    for (j = 2; j <i; j++)
+
+                if (i % 2 != 0)
+                {
+                    for (j = 2; j < i; j++)
                     {
                         result.NumberOfOperations = result.NumberOfOperations + 1;
                         if (i % j == 0)
@@ -40,6 +42,7 @@ namespace PrimeNumberApp.Operations
                         // result.NumberOfOperations = result.NumberOfOperations + 1;
                         result.Result.Add(i);
                     }
+                }
                 
             }
 
