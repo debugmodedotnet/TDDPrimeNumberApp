@@ -25,8 +25,10 @@ namespace PrimeNumberApp
 
                 IPrimeNumberGenerator _primeNumberGenerator = new PrimeNumberGenerator();
                 var result = _primeNumberGenerator.GetNumbers(limit);
-                Console.WriteLine("Total number of Prime Numbers : " + result.Count());
-                foreach(var r in result)
+                Console.WriteLine("Total number of Operations : " + result.NumberOfOperations);
+                Console.WriteLine("Total number of Prime Numbers : " + result.Result.Count());
+                
+                foreach(var r in result.Result)
                 {
                     Console.Write(r + ",");
                 }
