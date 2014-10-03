@@ -13,42 +13,39 @@ namespace PrimeNumberApp.Operations
         PrimeNumberResult result;
         PrimeNumberResult IPrimeNumberGenerator.GetNumbers(int count)
         {
-            int i, j;
-             result = new PrimeNumberResult{Result = new List<int>(), NumberOfOperations=0};
-            // List<int> lstPrimeNumbers = new List<int>();
-            //lstPrimeNumbers.Add(1);
-          //  result.Result.Add(1);
+            int i;
+            result = new PrimeNumberResult{Result = new List<int>(), NumberOfOperations=0};
             result.Result.Add(2);
 
             for (i = 3; i <= count; i++)
             {
                
 
-                //if (i % 2 == 0) 
-                //{
-                //    continue; 
-                //}
-                //  else if (i % 3 ==0)
-                //{
-                //      continue; 
-                // }
-                //  else if (i % 5 ==0)
-                //{
-                //      continue; 
-                // }
-                //  else if (i % 7 ==0)
-                //{
-                //      continue; 
-                // }
+                if (i % 2 == 0) 
+                {
+                    continue; 
+                }
+                else if (i % 3 ==0)
+                {
+                      continue; 
+                 }
+                else if (i % 5 ==0)
+                {
+                      continue; 
+                 }
+                 else if (i % 7 ==0)
+                {
+                      continue; 
+                 }
                
-                //else
-                //{
+                else
+                {
                     if(isPrime(i))
                     {
                         result.Result.Add(i);
 
                     }
-               //}
+               }
             }
                 
             
