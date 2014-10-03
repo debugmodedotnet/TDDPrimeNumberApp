@@ -9,7 +9,7 @@ namespace PrimeNumberApp.Core
    public interface IPrimeNumberGenerator
     {
 
-       List<int> GetNumbers(int count);
+     PrimeNumberResult GetNumbers(int count);
 
     }
 }

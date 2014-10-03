@@ -8,8 +8,9 @@ namespace PrimeNumberApp.Core
 {
    public class PrimeNumberResult
     {
-        public List<int> Result { get;}
-        public int  NumberOfOperations { get; }
+       public List<int> Result { get; set; }
+       public int NumberOfOperations { get; set; }
+       
 
     }
 }

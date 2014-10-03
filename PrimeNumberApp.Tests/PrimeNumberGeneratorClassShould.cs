@@ -9,25 +9,35 @@ namespace PrimeNumberApp.Tests
     public class PrimeNumberGeneratorClassShould
     {
    
-        IPrimeNumberGenerator _primeNumberGenerator = null;
+        private IPrimeNumberGenerator _primeNumberGenerator = null;
         private readonly int _expectedCount = 9;
-        private readonly int _targetNumber = 20; 
+        private readonly int _targetNumber = 20;
+        private readonly int _numberOfOperations = 30;
+        
 
        [TestInitialize]
         public void TestSetup()
         {
             _primeNumberGenerator = new PrimeNumberGenerator();
+           
+            
         }
         [TestMethod]
         public void ReturnsExpectedCount()
         {
             var result = _primeNumberGenerator.GetNumbers(_targetNumber);
             Assert.IsNotNull(result);
-            Assert.AreEqual(_expectedCount, result.Count);
+            Assert.AreEqual(_expectedCount, result.Result.Count);
 
         }
 
-
+        [TestMethod]
+        public void ReturnsExpectedOperationCount()
+        {
+            var result = _primeNumberGenerator.GetNumbers(_targetNumber);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(_numberOfOperations, result.NumberOfOperations);
+        }
 
     }
 }

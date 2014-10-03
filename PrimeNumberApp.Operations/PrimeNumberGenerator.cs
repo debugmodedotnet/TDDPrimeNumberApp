@@ -7,33 +7,43 @@ using PrimeNumberApp.Core;
 
 namespace PrimeNumberApp.Operations
 {
-    public class PrimeNumberGenerator  : IPrimeNumberGenerator
-    {       
-        List<int> IPrimeNumberGenerator.GetNumbers(int count)
-        {
-            int i, j; 
-            List<int> lstPrimeNumbers = new List<int>();
-            lstPrimeNumbers.Add(1);
-           
-            for ( i = 2; i <= count; i++ )
-            {
-                 for( j = 2; j <i; j++)
-                 {
-                     if (i % j == 0)
-                     {
-                         break;
-                     }
-                    
-                 }
+    public class PrimeNumberGenerator : IPrimeNumberGenerator
+    {
 
-                 if (j == i)
-                 {
-                     lstPrimeNumbers.Add(i);
-                 }
+
+        PrimeNumberResult IPrimeNumberGenerator.GetNumbers(int count)
+        {
+            int i, j;
+            PrimeNumberResult result = new PrimeNumberResult{Result = new List<int>(), NumberOfOperations=0};
+            // List<int> lstPrimeNumbers = new List<int>();
+            //lstPrimeNumbers.Add(1);
+            result.Result.Add(1);
+           
+
+            for (i = 2; i <= count; i++)
+            {
+                result.NumberOfOperations = result.NumberOfOperations + 1;
+                for (j = 2; j < i; j++)
+                {
+                    result.NumberOfOperations = result.NumberOfOperations + 1;
+                    if (i % j == 0)
+                    {
+                        result.NumberOfOperations = result.NumberOfOperations + 1;
+                        break;
+                    }
+
+                }
+
+                if (j == i)
+                {
+                    result.NumberOfOperations = result.NumberOfOperations + 1;
+                    result.Result.Add(i);
+                }
             }
 
-            return lstPrimeNumbers; 
-                
+                return result;
+
+            }
         }
     }
-}
+
