@@ -10,8 +10,8 @@ namespace PrimeNumberApp.Tests
     {
    
         IPrimeNumberGenerator _primeNumberGenerator = null;
-        private readonly int _expectedCount = 0;
-        private readonly int _targetNumber = 100; 
+        private readonly int _expectedCount = 9;
+        private readonly int _targetNumber = 20; 
 
        [TestInitialize]
         public void TestSetup()
