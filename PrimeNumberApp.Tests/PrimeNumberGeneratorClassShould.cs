@@ -10,9 +10,9 @@ namespace PrimeNumberApp.Tests
     {
    
         private IPrimeNumberGenerator _primeNumberGenerator = null;
-        private readonly int _expectedCount = 9;
-        private readonly int _targetNumber = 20;
-        private readonly int _numberOfOperations = 30;
+        private readonly int _expectedCount = 25;
+        private readonly int _targetNumber = 100;
+        private readonly int _numberOfOperations = 98;
         
 
        [TestInitialize]
