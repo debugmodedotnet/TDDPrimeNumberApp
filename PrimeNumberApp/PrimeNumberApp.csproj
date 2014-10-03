@@ -47,6 +47,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrimeNumberApp.Core\PrimeNumberApp.Core.csproj">
+      <Project>{832a5ea3-21b0-4f0a-a071-c118dc32fb18}</Project>
+      <Name>PrimeNumberApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PrimeNumberApp.Operations\PrimeNumberApp.Operations.csproj">
+      <Project>{03cad74a-8260-41fc-8293-03f9402a4fef}</Project>
+      <Name>PrimeNumberApp.Operations</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
