@@ -10,11 +10,11 @@ namespace PrimeNumberApp.Operations
     public class PrimeNumberGenerator : IPrimeNumberGenerator
     {
 
-
+        PrimeNumberResult result;
         PrimeNumberResult IPrimeNumberGenerator.GetNumbers(int count)
         {
             int i, j;
-            PrimeNumberResult result = new PrimeNumberResult{Result = new List<int>(), NumberOfOperations=0};
+             result = new PrimeNumberResult{Result = new List<int>(), NumberOfOperations=0};
             // List<int> lstPrimeNumbers = new List<int>();
             //lstPrimeNumbers.Add(1);
           //  result.Result.Add(1);
@@ -22,36 +22,36 @@ namespace PrimeNumberApp.Operations
 
             for (i = 3; i <= count; i++)
             {
-                result.NumberOfOperations = result.NumberOfOperations + 1;
+               
 
-                if (i % 2 != 0)
-                 {
-                //    for (j = 2; j <= Math.Ceiling( Math.Sqrt(i)); j++)
-                //    {
-                //        result.NumberOfOperations = result.NumberOfOperations + 1;
-                //        if (i % j == 0)
-                //        {
-                //            // result.NumberOfOperations = result.NumberOfOperations + 1;
-                //            break;
-                //        }
-
-                //    }
-
-                //    if (j == i)
-                //    {
-                //        // result.NumberOfOperations = result.NumberOfOperations + 1;
-                //        result.Result.Add(i);
-                //    }
+                //if (i % 2 == 0) 
+                //{
+                //    continue; 
                 //}
+                //  else if (i % 3 ==0)
+                //{
+                //      continue; 
+                // }
+                //  else if (i % 5 ==0)
+                //{
+                //      continue; 
+                // }
+                //  else if (i % 7 ==0)
+                //{
+                //      continue; 
+                // }
+               
+                //else
+                //{
+                    if(isPrime(i))
+                    {
+                        result.Result.Add(i);
 
-                if(isPrime(i))
-                {
-                    result.Result.Add(i);
-
-                }
+                    }
+               //}
             }
                 
-            }
+            
 
                 return result;
 
@@ -68,6 +68,7 @@ namespace PrimeNumberApp.Operations
 
             for (int i = 2; i <= Math.Ceiling(Math.Sqrt(number)); ++i)
             {
+                result.NumberOfOperations = result.NumberOfOperations + 1; 
                 if (number % i == 0) return false;
             }
 
