@@ -12,18 +12,10 @@ namespace PrimeNumberApp.Operations
 
         
 
-        public IEnumerable<int> GetNumbers(int count)
+       
+        List<int> IPrimeNumberGenerator.GetNumbers(int count)
         {
-            //List<int> lstNumbers = new List<int>();
-            //lstNumbers.Add(1);
-            
-            //for(int i = 2;i<=count; i++)
-            //{
-
-
-            //}
-
-            return null;
+            return null; 
         }
     }
 }
