@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DivideByPrimeNumbersInLoopMethod.cs" />
     <Compile Include="PrimeNumberGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SieveOfEratosthenes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrimeNumberApp.Core\PrimeNumberApp.Core.csproj">
