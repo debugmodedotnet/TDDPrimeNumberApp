@@ -9,13 +9,13 @@ namespace PrimeNumberApp.Operations
 {
     public class DivideByPrimeNumbersInLoopMethod : ITestPrime
     {
-        private  bool IsPrime(int number)
+        private bool IsPrime(int number)
         {
 
             if (number == 1) return false;
             for (int i = 2; i <= Math.Ceiling(Math.Sqrt(number)); ++i)
             {
-               // noOfOperations = noOfOperations + 1;
+                // noOfOperations = noOfOperations + 1;
                 if (number % i == 0) return false;
             }
             return true;
@@ -28,19 +28,19 @@ namespace PrimeNumberApp.Operations
                 if (number % prime == 0)
                 {
                     // todo: increment operation count
-                  //  noOfOperations = noOfOperations + 1;
+                    //  noOfOperations = noOfOperations + 1;
                     return true;
                 }
             }
             return false;
         }
 
-      public  PrimeNumberResult FindPrimeNumbers(int MaxLimit)
+        public PrimeNumberResult FindPrimeNumbers(int MaxLimit)
         {
-           int i;
-           PrimeNumberResult result = new PrimeNumberResult { PrimeNumbers = new List<int>(), NumberOfOperations = 0 };
-           result.PrimeNumbers.Add(2);
-           for (i = 2; i <= MaxLimit; i++)
+            int i;
+            PrimeNumberResult result = new PrimeNumberResult { PrimeNumbers = new List<int>(), NumberOfOperations = 0 };
+            result.PrimeNumbers.Add(2);
+            for (i = 2; i <= MaxLimit; i++)
             {
                 if (!IsDivisebleByFoundPrimeFactor(result.PrimeNumbers, i))
                 {
@@ -51,7 +51,7 @@ namespace PrimeNumberApp.Operations
                 }
             }
 
-           return result; 
+            return result;
         }
     }
 }

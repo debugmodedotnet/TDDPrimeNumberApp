@@ -52,7 +52,7 @@ namespace PrimeNumberApp
                     Console.WriteLine(resultToPrint);
                     sw.Stop();
                     Console.WriteLine("Time taken={0}", sw.Elapsed);
-                    Console.ReadKey(true);
+
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 

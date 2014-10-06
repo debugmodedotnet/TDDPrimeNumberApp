@@ -7,18 +7,18 @@ using PrimeNumberApp.Core;
 
 namespace PrimeNumberApp.Operations
 {
-    public class PrimeNumberGenerator 
+    public class PrimeNumberGenerator
     {
         ITestPrime _testAlgorithm;
         public PrimeNumberGenerator(ITestPrime testAlgorithm)
         {
 
-            _testAlgorithm = testAlgorithm; 
+            _testAlgorithm = testAlgorithm;
         }
         public PrimeNumberResult GetNumbers(int count)
         {
 
-            PrimeNumberResult result =  _testAlgorithm.FindPrimeNumbers(100);
+            PrimeNumberResult result = _testAlgorithm.FindPrimeNumbers(count);
             return result;
 
         }
