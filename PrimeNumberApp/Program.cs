@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using PrimeNumberApp.Operations;
 using PrimeNumberApp.Core;
-
-
 namespace PrimeNumberApp
 {
     class Program
@@ -26,12 +24,14 @@ namespace PrimeNumberApp
                 IPrimeNumberGenerator _primeNumberGenerator = new PrimeNumberGenerator();
                 var result = _primeNumberGenerator.GetNumbers(limit);
                 Console.WriteLine("Total number of Operations : " + result.NumberOfOperations);
-                Console.WriteLine("Total number of Prime Numbers : " + result.Result.Count());
-                
-                foreach(var r in result.Result)
-                {
-                    Console.Write(r + ",");
-                }
+                Console.WriteLine("Total number of Prime Numbers : " + result.PrimeNumbers.Count());
+                var resultToPrint =  string.Join(",", result.PrimeNumbers.Select(n => n.ToString()).ToArray());
+                //foreach(var r in result.PrimeNumbers)
+                //{
+                //    Console.Write(r + ",");
+                //}
+
+                Console.WriteLine(resultToPrint);
                 Console.ReadKey(true);
             }
 

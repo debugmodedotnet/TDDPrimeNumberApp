@@ -7,14 +7,12 @@ namespace PrimeNumberApp.Tests
 {
     [TestClass]
     public class PrimeNumberGeneratorClassShould
-    {
-   
+    { 
         private PrimeNumberGenerator _primeNumberGenerator = null;
-        private readonly int _expectedCount = 25;
-        private readonly int _targetNumber = 100;
-        private readonly int _numberOfOperations = 98;
-        private readonly int _targetnumberToDivideByThreeFiveSeven = 63;
-        private readonly int _targetnumberToVerifyPrime = 61; 
+        private readonly int _expectedResultCount = 25;
+        private readonly int _maxRangeToFindPrimeNumbers = 100;
+        private readonly int _expectedNumberOfOperationsCount = 98;
+        private readonly int _numberToVerify = 61; 
 
        [TestInitialize]
         public void TestSetup()
@@ -24,33 +22,27 @@ namespace PrimeNumberApp.Tests
             
         }
         [TestMethod]
-        public void ReturnExpectedCount()
+        public void  ReturnExpectedResultCount()
         {
-            var result = _primeNumberGenerator.GetNumbers(_targetNumber);
+            var result = _primeNumberGenerator.GetNumbers(_maxRangeToFindPrimeNumbers);
             Assert.IsNotNull(result);
-            Assert.AreEqual(_expectedCount, result.Result.Count);
+            Assert.AreEqual(_expectedResultCount, result.PrimeNumbers.Count);
 
         }
 
         [TestMethod]
-        public void ReturnExpectedOperationCount()
+        public void ReturnExpectedOperationsCount()
         {
-            var result = _primeNumberGenerator.GetNumbers(_targetNumber);
+            var result = _primeNumberGenerator.GetNumbers(_maxRangeToFindPrimeNumbers);
             Assert.IsNotNull(result);
-            Assert.AreEqual(_numberOfOperations, result.NumberOfOperations);
+            Assert.AreEqual(_expectedNumberOfOperationsCount, result.NumberOfOperations);
         }
 
         [TestMethod]
-        public void ValidDivideByThreeFiveSeven()
+        public void ResturnNumberIsPrimeOrNot()
         {
-            var result = _primeNumberGenerator.IsDivisebleByThreeFiveSeven(_targetnumberToDivideByThreeFiveSeven);
+            var result = _primeNumberGenerator.IsPrime(_numberToVerify);
             Assert.AreEqual(true, result);
-        }
-        [TestMethod]
-        public void VerifyNumberIsPrime()
-        {
-            //var result = _primeNumberGenerator.IsPrime(_targetnumberToDivideByThreeFiveSeven);
-            //Assert.AreEqual(true, result);
         }
 
     }

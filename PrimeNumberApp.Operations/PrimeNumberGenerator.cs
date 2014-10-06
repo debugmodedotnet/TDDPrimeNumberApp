@@ -11,29 +11,24 @@ namespace PrimeNumberApp.Operations
     {
 
         PrimeNumberResult result;
+        int noOfOperations = 0; 
         public PrimeNumberResult GetNumbers(int count)
         {
             int i;
-            result = new PrimeNumberResult { Result = new List<int>(), NumberOfOperations = 0 };
-            result.Result.Add(2);
+            result = new PrimeNumberResult { PrimeNumbers = new List<int>(), NumberOfOperations = 0 };
+            result.PrimeNumbers.Add(2);
 
-            for (i = 3; i <= count; i++)
+            for (i = 2; i <= count; i++)
             {
-                if (i % 2 != 0)
+                if (!IsDivisebleByFoundPrimeFactor(result.PrimeNumbers, i))
                 {
-                    if (!IsDivisebleByThreeFiveSeven(i))
+                    if (IsPrime(i))
                     {
-
-                        if (IsPrime(i))
-                        {
-                            result.Result.Add(i);
-
-                        }
+                        result.PrimeNumbers.Add(i);
                     }
-
                 }
-
             }
+            result.NumberOfOperations += noOfOperations;
             return result;
 
         }
@@ -42,29 +37,29 @@ namespace PrimeNumberApp.Operations
         {
 
             if (number == 1) return false;
-            if (number == 2) return true;
+          
 
             for (int i = 2; i <= Math.Ceiling(Math.Sqrt(number)); ++i)
             {
-                result.NumberOfOperations = result.NumberOfOperations + 1;
+                noOfOperations = noOfOperations + 1;                
                 if (number % i == 0) return false;
             }
 
             return true;
         }
 
-        public bool IsDivisebleByThreeFiveSeven(int number)
+        public bool IsDivisebleByFoundPrimeFactor(IEnumerable<int> primes, int number)
         {
-            bool flag = false;
-            for (int i = 3; i <= 7; i += 2)
+            foreach (var prime in primes) // count this loop per iteration
             {
-                if (number % i == 0)
+                if (number % prime == 0)
                 {
-                    flag = true;
+                    // todo: increment operation count
+                    noOfOperations = noOfOperations + 1; 
+                    return true;
                 }
             }
-
-            return flag;
+            return false;
         }
 
     }
